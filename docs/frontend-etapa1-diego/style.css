@@ -1,0 +1,84 @@
+/*
+  Estilo Global - Etapa 1
+  Autoria: Diego Henrique C. Custodio (RA 20240153)
+  Origem: documento "Estrutura HTML.docx"
+
+  Esta paleta foi adotada no SPA consolidado (src/main/resources/static/css/style.css):
+    - Verde acao   #27ae60 / hover #219150
+    - Navy header  #2c3e50
+    - Fundo body   #f4f7f6
+    - Azul accent  #3498db / fundo card #e8f4fd
+    - Texto        #34495e / cinza secundario #7f8c8d
+*/
+
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f4f7f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+header { text-align: center; margin-bottom: 25px; }
+header h1 { color: #2c3e50; margin-bottom: 5px; }
+header p { color: #7f8c8d; font-size: 0.9em; }
+
+.form-group { margin-bottom: 15px; }
+label { display: block; margin-bottom: 5px; font-weight: bold; color: #34495e; }
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+button:hover { background-color: #219150; }
+
+.card-resultado {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e8f4fd;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+    text-align: center;
+}
+.card-resultado h3 { color: #2980b9; margin-bottom: 10px; }
+#valorFinal { font-size: 1.4em; font-weight: bold; color: #2c3e50; }
+
+.success { color: green; margin-top: 15px; text-align: center; font-weight: bold; }
+.hidden { display: none; }
+
+@media (max-width: 480px) {
+    .container { padding: 20px; }
+}

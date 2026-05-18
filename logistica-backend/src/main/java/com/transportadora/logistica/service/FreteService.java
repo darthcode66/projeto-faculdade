@@ -6,6 +6,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Servico de precificacao de fretes (modulo do Vinicius).
+ *
+ * A logica de calculo (constantes de custo, multiplicadores por tipo de carga
+ * e formula final) foi definida por Vinicius Eduardo da Silva (RA 20240289)
+ * na entrega original em docs/precificacao-etapa1-vinicius/FreteService.java.
+ *
+ * Esta versao integra a logica ao Spring Boot e adiciona persistencia via JPA,
+ * preservando integralmente as constantes e a formula do autor original.
+ *
+ * Formula: ValorTotal = (CustoFixo + CustoVariavel) x Multiplicador x (1 + Margem/100)
+ */
 @Service
 public class FreteService {
 

@@ -1,0 +1,42 @@
+<!--
+  Estrutura inicial do frontend - Etapa 1
+  Autoria: Diego Henrique C. Custodio (RA 20240153)
+  Origem: documento "Estrutura HTML.docx"
+  Status: artefato historico - superado pela SPA consolidada em src/main/resources/static/
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Logistico - Cadastro de Veiculo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestao de Frota</h1>
+            <p>Cadastro de Veiculos - Projeto Integrador FAM</p>
+        </header>
+        <main>
+            <form id="veiculoForm">
+                <div class="form-group">
+                    <label for="placa">Placa do Veiculo:</label>
+                    <input type="text" id="placa" placeholder="ABC-1234" required>
+                </div>
+                <div class="form-group">
+                    <label for="modelo">Modelo/Marca:</label>
+                    <input type="text" id="modelo" placeholder="Ex: Volvo FH 540" required>
+                </div>
+                <div class="form-group">
+                    <label for="capacidade">Capacidade de Carga (kg):</label>
+                    <input type="number" id="capacidade" placeholder="Ex: 25000" required>
+                </div>
+                <button type="submit" id="btnSalvar">Salvar Veiculo</button>
+            </form>
+            <div id="mensagem" class="hidden"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

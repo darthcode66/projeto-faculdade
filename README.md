@@ -12,6 +12,18 @@ Sistema web de gestao de transportadora com precificacao inteligente de frete, d
 | Pedro H. A. Marcandali | 20241595 | Backend e Estrutura |
 | Vinicius Eduardo da Silva | 20240289 | Precificacao e Regras de Negocio |
 
+## Documentacao Tecnica
+
+| Documento | Conteudo |
+|---|---|
+| [docs/diagramas/diagrama-classes.md](docs/diagramas/diagrama-classes.md) | UML — Diagrama de Classes (Mermaid) |
+| [docs/diagramas/der-banco.md](docs/diagramas/der-banco.md) | DER — Modelagem do Banco (Mermaid) |
+| [docs/diagramas/casos-de-uso.md](docs/diagramas/casos-de-uso.md) | UML — Casos de Uso + Rastreabilidade RF/RNF |
+| [docs/diagramas/diagrama-sequencia.md](docs/diagramas/diagrama-sequencia.md) | UML — Diagramas de Sequencia (Login, Viagem, Frete) |
+| [docs/manual/manual-usuario.md](docs/manual/manual-usuario.md) | Manual do Usuario |
+| [docs/frontend-etapa1-diego/](docs/frontend-etapa1-diego/) | Arquivos originais do frontend (Etapa 1 - Diego) |
+| [docs/precificacao-etapa1-vinicius/](docs/precificacao-etapa1-vinicius/) | Logica original do calculo de frete (Etapa 1 - Vinicius) |
+
 ## Estrutura do Repositorio
 
 ```

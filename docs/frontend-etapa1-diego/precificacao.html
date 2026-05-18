@@ -1,0 +1,51 @@
+<!--
+  Tela de Precificacao - Etapa 1
+  Autoria: Diego Henrique C. Custodio (RA 20240153)
+  Origem: documento "Estrutura HTML.docx"
+  Status: artefato historico - superado pela aba "Calculo de Frete" da SPA consolidada
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGL - Precificacao</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculo de Frete</h1>
+            <p>Modulo de Precificacao Inteligente - PI</p>
+        </header>
+        <main>
+            <form id="formPrecificacao">
+                <div class="form-group">
+                    <label for="distancia">Distancia da Rota (km):</label>
+                    <input type="number" id="distancia" placeholder="Ex: 500" required>
+                </div>
+                <div class="form-group">
+                    <label for="peso">Peso da Carga (kg):</label>
+                    <input type="number" id="peso" placeholder="Ex: 2000" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipoCarga">Tipo de Carga:</label>
+                    <select id="tipoCarga">
+                        <option value="1.0">Carga Comum</option>
+                        <option value="1.5">Carga Fragil / Perigosa</option>
+                        <option value="1.3">Carga Refrigerada</option>
+                    </select>
+                </div>
+                <button type="submit">Calcular Valor Estimado</button>
+            </form>
+            <div id="resultadoArea" class="hidden">
+                <div class="card-resultado">
+                    <h3>Resultado da Simulacao</h3>
+                    <p id="valorFinal"></p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="precificacao.js"></script>
+</body>
+</html>

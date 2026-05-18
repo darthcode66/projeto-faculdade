@@ -1,15 +1,23 @@
 /* ============================
    Sistema de Gestao Logistica
+   ----------------------------
+   Identidade visual e paleta de cores definidas por
+   Diego Henrique C. Custodio (RA 20240153) - modulo Frontend
+   no documento "Estrutura HTML.docx" (Etapa 1).
    ============================ */
 
 :root {
-    --primary: #1a73e8;
-    --primary-dark: #1557b0;
-    --secondary: #34a853;
+    /* Paleta Diego - aplicada ao SPA consolidado */
+    --primary: #2c3e50;        /* navy - cabecalhos e branding */
+    --primary-dark: #1a2530;
+    --secondary: #27ae60;      /* verde - botoes de acao (Diego) */
+    --secondary-dark: #219150; /* hover do botao verde (Diego) */
+    --accent: #3498db;         /* azul - cards de resultado (Diego) */
+    --accent-light: #e8f4fd;   /* fundo do card de precificacao (Diego) */
     --danger: #ea4335;
     --warning: #fbbc04;
-    --dark: #202124;
-    --gray: #5f6368;
+    --dark: #34495e;           /* texto - tom Diego */
+    --gray: #7f8c8d;           /* texto secundario (Diego) */
     --light: #f8f9fa;
     --border: #dadce0;
     --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
@@ -20,7 +28,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f0f2f5;
+    background: #f4f7f6; /* fundo Diego */
     color: var(--dark);
     min-height: 100vh;
 }
@@ -31,7 +39,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+    background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
 }
 
 .login-box {
@@ -308,7 +316,7 @@ select.form-control {
 .btn-primary { background: var(--primary); color: white; }
 .btn-primary:hover { background: var(--primary-dark); }
 .btn-success { background: var(--secondary); color: white; }
-.btn-success:hover { background: #2d9249; }
+.btn-success:hover { background: var(--secondary-dark); } /* hover Diego */
 .btn-danger { background: var(--danger); color: white; }
 .btn-danger:hover { background: #d33426; }
 .btn-warning { background: var(--warning); color: var(--dark); }
@@ -437,11 +445,18 @@ tr:hover { background: #f8f9fa; }
     box-shadow: var(--shadow);
 }
 
+/* Card de resultado da precificacao - design por Diego (Estrutura HTML.docx) */
 .calc-result {
-    background: white;
+    background: var(--accent-light);
+    border-left: 5px solid var(--accent);
     border-radius: 10px;
     padding: 24px;
     box-shadow: var(--shadow);
+}
+
+.calc-result h3 {
+    color: var(--accent);
+    margin-bottom: 10px;
 }
 
 .result-item {

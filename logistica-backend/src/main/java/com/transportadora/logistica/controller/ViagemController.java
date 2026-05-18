@@ -64,6 +64,22 @@ public class ViagemController {
             return ResponseEntity.badRequest().body(Map.of("erro", "Veiculo, rota, carga ou motorista nao encontrados"));
         }
 
+        // Regra de negocio (modulo de Logistica - Leonardo):
+        // Um veiculo so pode iniciar uma viagem se estiver disponivel
+        if (veiculo.getStatus() != Veiculo.StatusVeiculo.DISPONIVEL) {
+            return ResponseEntity.badRequest().body(Map.of("erro",
+                    "Veiculo " + veiculo.getPlaca() + " nao esta disponivel (status atual: "
+                            + veiculo.getStatus() + ")"));
+        }
+
+        // Regra de negocio (modulo de Logistica - Leonardo):
+        // O peso da carga nao pode ultrapassar a capacidade do veiculo
+        if (carga.getPesoKg() > veiculo.getCapacidadeKg()) {
+            return ResponseEntity.badRequest().body(Map.of("erro",
+                    "Peso da carga (" + carga.getPesoKg() + " kg) excede a capacidade do veiculo "
+                            + veiculo.getPlaca() + " (" + veiculo.getCapacidadeKg() + " kg)"));
+        }
+
         viagem.setVeiculo(veiculo);
         viagem.setRota(rota);
         viagem.setCarga(carga);
