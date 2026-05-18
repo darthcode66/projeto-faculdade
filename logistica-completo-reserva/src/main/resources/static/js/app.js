@@ -452,9 +452,9 @@ async function editarCliente(id) {
 
     document.getElementById('clienteId').value = c.id;
     document.getElementById('clienteNome').value = c.nome;
-    document.getElementById('clienteCnpj').value = c.cnpj || '';
+    document.getElementById('clienteCnpj').value = aplicarMascaraCnpj(c.cnpj || '');
     document.getElementById('clienteCidade').value = c.cidade || '';
-    document.getElementById('clienteTelefone').value = c.telefone || '';
+    document.getElementById('clienteTelefone').value = aplicarMascaraTelefone(c.telefone || '');
     document.getElementById('clienteEmail').value = c.email || '';
     document.getElementById('clienteModalTitle').textContent = 'Editar Cliente';
 
@@ -534,7 +534,7 @@ async function editarMotorista(id) {
     document.getElementById('motoristaCnh').value = m.cnh;
     document.getElementById('motoristaCategoria').value = m.categoriaCnh || 'E';
     document.getElementById('motoristaValidade').value = m.validadeCnh || '';
-    document.getElementById('motoristaTelefone').value = m.telefone || '';
+    document.getElementById('motoristaTelefone').value = aplicarMascaraTelefone(m.telefone || '');
     document.getElementById('motoristaAtivo').checked = m.ativo;
     document.getElementById('motoristaModalTitle').textContent = 'Editar Motorista';
 
@@ -781,10 +781,48 @@ function badgeViagem(s) {
     return map[s] || s;
 }
 
+// ── Mascaras de input (sugestao do Leonardo) ──────────────────────────
+
+function aplicarMascaraCnpj(valor) {
+    const d = valor.replace(/\D/g, '').slice(0, 14);
+    return d
+        .replace(/^(\d{2})(\d)/, '$1.$2')
+        .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+        .replace(/\.(\d{3})(\d)/, '.$1/$2')
+        .replace(/(\d{4})(\d)/, '$1-$2');
+}
+
+function aplicarMascaraTelefone(valor) {
+    const d = valor.replace(/\D/g, '').slice(0, 11);
+    if (d.length <= 10) {
+        return d
+            .replace(/^(\d{2})(\d)/, '($1) $2')
+            .replace(/(\d{4})(\d)/, '$1-$2');
+    }
+    return d
+        .replace(/^(\d{2})(\d)/, '($1) $2')
+        .replace(/(\d{5})(\d)/, '$1-$2');
+}
+
+function inicializarMascaras() {
+    document.querySelectorAll('input[data-mask]').forEach(input => {
+        if (input.dataset.maskInitialized) return;
+        input.dataset.maskInitialized = '1';
+        const tipo = input.dataset.mask;
+        input.addEventListener('input', e => {
+            const v = e.target.value;
+            e.target.value = tipo === 'cnpj'
+                ? aplicarMascaraCnpj(v)
+                : aplicarMascaraTelefone(v);
+        });
+    });
+}
+
 // ── Init ──────────────────────────────────────────────────────────────
 
 window.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
+    inicializarMascaras();
     const saved = localStorage.getItem('user');
     if (saved) {
         currentUser = JSON.parse(saved);

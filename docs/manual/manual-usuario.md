@@ -170,6 +170,13 @@ R: Para produção, troque o H2 pelo MySQL (script `transportadora_completo.sql`
 **P: A placa do veículo precisa ter formato específico?**
 R: O sistema aceita qualquer texto, mas recomendamos o padrão brasileiro `ABC-1234` ou Mercosul `ABC1D23` para consistência.
 
+**P: O CNPJ e o telefone precisam ser digitados com pontuação?**
+R: Não. O sistema aplica máscara automática enquanto você digita.
+- **CNPJ:** digite só números. Será formatado como `00.000.000/0000-00`.
+- **Telefone:** digite só números. Será formatado como `(00) 00000-0000` (celular) ou `(00) 0000-0000` (fixo).
+
+A máscara também é aplicada na edição de cadastros antigos, padronizando registros que tenham sido inseridos sem formatação.
+
 ---
 
 ## 7. Suporte
